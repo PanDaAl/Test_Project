@@ -8,12 +8,19 @@
     <Grid ShowGridLines="True">
         <!-- Задаем количество строк -->
         <Grid.RowDefinitions>
-            <RowDefinition></RowDefinition>
+            <RowDefinition Height="*"></RowDefinition>
             <RowDefinition Height="0.15*"></RowDefinition>
         </Grid.RowDefinitions>
         <!-- Таблица для вывода информации -->
-        <DataGrid Name="DataGridView" Grid.Row="0" AutoGenerateColumns="False" FontSize="16"></DataGrid>
-        <!-- ComboBox для выбора таблицы -->
-        <ComboBox Grid.Row="1" Name="TablesComboBox" Width="250" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" SelectionChanged="TablesComboBox_SelectionChanged"></ComboBox>
+        <DataGrid Name="DataGridView" Grid.Row="0" AutoGenerateColumns="False" FontSize="16" CellEditEnding="SaveChangesDataFromCellEdit"></DataGrid>
+        <!-- Кнопки для работы с БД -->
+        <DockPanel Grid.Row="1" LastChildFill="False">
+            <!-- ComboBox для выбора таблицы -->
+            <ComboBox Grid.Row="1" Name="TablesComboBox" Width="250" HorizontalAlignment="Left" HorizontalContentAlignment="Center" VerticalContentAlignment="Center" FontSize="18" SelectionChanged="TablesComboBox_SelectionChanged"></ComboBox>
+            <!-- Кнопка для удаления информации из базы данных -->
+            <Button Content="Удалить" Width="150" Margin="0, 0, 0, 0" DockPanel.Dock="Right" Click="RemoveDataFromDB"></Button>
+            <!-- Кнопка для добавления информации в базу данных -->
+            <Button Content="Добавить" Width="150" Margin="0, 0, 20, 0" DockPanel.Dock="Right" Click="AddDataToDB"></Button>
+        </DockPanel>
     </Grid>
 </Page>

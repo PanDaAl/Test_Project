@@ -1,6 +1,6 @@
 ﻿namespace Test_Project.Database.Tables
 {
-    class Phone
+    public class Phone
     {
         public string Model { get; set; } = null!;
 
