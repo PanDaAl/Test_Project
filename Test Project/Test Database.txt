@@ -1,0 +1,21 @@
+CREATE TABLE manufacturers (
+	name TEXT PRIMARY KEY,
+	country TEXT NOT NULL
+);
+
+INSERT INTO manufacturers VALUES
+	('Apple', 'USA'), ('Google', 'USA'),
+	('Huawei', 'China'), ('Samsung', 'South Korea');
+
+CREATE TABLE phones (
+	model TEXT PRIMARY KEY,
+	manufacturer TEXT REFERENCES manufacturers (name) ON DELETE SET NULL,
+	price DOUBLE PRECISION NOT NULL
+);
+
+INSERT INTO phones VALUES
+	('iPhone SE 2016', 'Apple', 19990), ('iPhone 12', 'Apple', 48490),
+	('iPhone 7', 'Apple', 32990), ('Pixel 7', 'Google', 60999),
+	('Pixel 8', 'Google', 85999), ('Pura 70 Ultra', 'Huawei', 109999),
+	('nova Y72', 'Huawei', 9999), ('Galaxy A33 5G', 'Samsung', 27990),
+	('Galaxy S20 FE', 'Samsung', 39990);
